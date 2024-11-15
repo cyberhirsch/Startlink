@@ -8,7 +8,60 @@
   <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
   <!-- Include your CSS -->
   <style>
-    /* CSS code goes here */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    #bookmark-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .section {
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .section h2 {
+      width: 100%;
+      margin-top: 0;
+    }
+
+    .bookmark {
+      display: flex;
+      align-items: center;
+      margin: 5px;
+      width: calc(25% - 10px);
+      box-sizing: border-box;
+    }
+
+    .bookmark img {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+    }
+
+    .horizontal-divider {
+      height: 1px;
+      background-color: #ccc;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .bookmark {
+        width: calc(50% - 10px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .bookmark {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -26,17 +79,19 @@
     <!-- Add more sections as needed -->
   </div>
 
-  <!-- JavaScript code goes here -->
+  <!-- JavaScript code -->
   <script>
     // Your Firebase configuration
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_AUTH_DOMAIN",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_STORAGE_BUCKET",
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-      appId: "YOUR_APP_ID",
-    };
+const firebaseConfig = {
+  apiKey: "AIzaSyB5DP69TQLKPRFOh6DhL1DepFmoOYNVDvc",
+  authDomain: "startlink-6a9fd.firebaseapp.com",
+  databaseURL: "https://startlink-6a9fd-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "startlink-6a9fd",
+  storageBucket: "startlink-6a9fd.firebasestorage.app",
+  messagingSenderId: "1000310693491",
+  appId: "1:1000310693491:web:72b67bbf52bbadfe7ed406",
+  measurementId: "G-Y82QTRXYQV"
+};
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
@@ -95,7 +150,7 @@
     }
 
     function addBookmarkToUI(bookmark) {
-      const section = document.querySelector(`.section[data-section="${bookmark.section}"]`);
+      const section = document.querySelector(\`.section[data-section="\${bookmark.section}"]\`);
       const bookmarkElement = document.createElement("div");
       bookmarkElement.classList.add("bookmark");
 
